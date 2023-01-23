@@ -1,0 +1,32 @@
+### Instalar o mysql no docker ###
+
+# Baixar a imagem #
+docker pull mysql
+
+# Conferir se a imagem está completa #
+docker images
+
+# Deploy de um container #
+docker run --name=mysql_intro_sgbdr -e MYSQL_ROOT_PASSWORD=senha -d mysql:latest
+
+# Conferir se o container já está rodando corretamente #
+docker ps
+
+# Criar um usuário que será o rei do MySQL, com permissões totais #
+
+docker exec -it mysql_intro_sgbdr mysql -u root --password=senharoot -e "CREATE USER 'bruno'@'localhost' IDENTIFIED BY 'senhadobruno';" && docker exec -it mysql_intro_sgbdr mysql -u root --password=senharoot -e "GRANT ALL ON mysql.* TO 'bruno'@'localhost';"
+
+
+### Gerenciar o mysql ###
+
+## Opção 1: Acessar a linha de comando do container, depois a linha de comando do mysql ##
+
+# Acessar a linha de comando do container #
+docker exec -it mysql_intro_sgbdr bash
+
+# Acessar a linha de comando do mysql #
+mysql -u root -p
+
+## Opção 2: Acessar direto a linha de comando do mysql ##
+docker exec -it mysql_intro_sgbdr mysql -u root --password=senha
+
