@@ -1,0 +1,18 @@
+## Fazer um backup ##
+
+mysqldump -u root empregados > backup_empregados.sql
+
+
+
+
+## Restaurar um backup ##
+
+# A partir da linha de comando do container #
+mysql -u root empregados_nova < backup_empregados.sql
+
+# Diretamente no terminal do mysql #
+source backup_empregados.sql
+
+
+## Carregar dados ##
+mysqlimport empregados detalhes_empregados.csv
