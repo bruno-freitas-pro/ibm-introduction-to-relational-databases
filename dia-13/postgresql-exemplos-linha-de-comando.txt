@@ -1,0 +1,25 @@
+### Abrir o postgresql em modo interativo ###
+
+psql
+
+### Comandos básicos ###
+
+-- Criar um banco de dados:
+CREATE DATABASE empregados;
+
+-- Conectar-se ao banco de dados:
+\connect empregados;
+
+-- Criar uma tabela e definir os atributos:
+CREATE TABLE detalhes_empregados (nome VARCHAR(20), sobrenome VARCHAR(20), data_inicio DATE, salario DECIMAL);
+
+-- Descrever a estrutura da tabela
+\d detalhes_empregados
+
+### Comandos de backup ###
+
+-- Gerar um backup através do terminal
+pg_dump empregados > backup_empregados.sql
+
+-- Restaurar um backup através do terminal
+psql empregados_nova < backup_empregados.sql
