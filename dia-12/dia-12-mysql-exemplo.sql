@@ -8,6 +8,9 @@ CREATE TABLE detalhes_empregados (nome VARCHAR(20), sobrenome VARCHAR(20), data_
 
 LOAD DATA INFILE 'dados_empregados.csv' INTO TABLE detalhes_empregados
 
+-- Opção usando linha de comando:
+-- mysqlimport empregados detalhes_empregados.csv
+
 
 /* Exemplo prático usando Sakila */
 
